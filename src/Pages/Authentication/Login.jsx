@@ -21,7 +21,7 @@ const Login = () => {
                     <div className="text-center lg:text-left">
                         <img className='md:h-[480px]' src='' alt="" />
                     </div>
-                    <div className="card bg-transparent border border-white backdrop-blur-[10px] md:w-[400px] md:h-[480px] rounded-[5px]  shrink-0 ">
+                    <div className="card bg-transparent border border-white backdrop-blur-[10px] md:w-[400px] md:h-[480px] rounded-[10px]  shrink-0 ">
                         <form onSubmit={handleLogin} className="card-body justify-center items-center space-y-2">
                             <h1 className='text-2xl text-center font-semibold text-[#43aae2]'>Login your <span className='text-[#4DC879]'>Account</span></h1>
                             <div className="form-control grid mt-5">
