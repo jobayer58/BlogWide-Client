@@ -14,6 +14,7 @@ import Features from './Pages/Features/Features';
 import Home from './Pages/Home/Home';
 import WishList from './Pages/WishList/WishList';
 import Register from './Pages/Authentication/Register';
+import AuthProvider from './context/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

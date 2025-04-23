@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../src/assets/icons8-movies-portal-100.png'
+import AuthContext from '../context/AuthContext';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+
     const links = <>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/addBlog'>Add Blog</NavLink>
@@ -35,7 +39,12 @@ const Navbar = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 gap-5 py-4 shadow right-0 left-auto">
                                 {links}
-                                <Link to='login'  className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
+                                {
+                                    user && user?.email ?
+                                        <button onClick={logOut} className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2  md:py-6 py-1 md:text-[20px] `}>LOGOUT</button>
+                                        :
+                                        <Link to='login' className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
+                                }
                             </ul>
                         </div>
                         <div className="flex justify-center items-center">
@@ -48,22 +57,24 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <div className="">
-                        <div className="lg:inline hidden flex justify-center items-center md:gap-4 gap-1">
-                            <Link to='login' className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
-                            {/* {
-                                    user?.email && <div><img data-tooltip-id="logo-img-tooltip" className="md:w-14 md:h-14 w-10 h-10 rounded-full object-cover" src={user?.photoURL} alt="" />
-                                        <Tooltip id="logo-img-tooltip" place="left" effect="solid">
-                                            {
-                                                user?.displayName
-                                            }
-                                        </Tooltip>
-                                    </div>
+                    <div className="lg:inline hidden">
+                        <div className=" flex justify-center items-center md:gap-4 gap-1">
+                            {
+                                user?.email && <div><img data-tooltip-id="logo-img-tooltip" className="md:w-14 md:h-14 w-10 h-10 rounded-full object-cover" src={user?.photoURL} alt="" />
+                                    <Tooltip id="logo-img-tooltip" place="left" effect="solid">
+                                        {
+                                            user?.displayName
+                                        }
+                                    </Tooltip>
+                                </div>
 
-                                }
-                                {
-                                    user && user?.email ? <button onClick={logOut} className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2  md:py-6 py-1 md:text-[20px] ${theme === "dark" && " text-black"}`}>LOGOUT</button> : <NavLink to='login' className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2 md:py-6 py-2 md:text-[20px] ${theme === "dark" && " text-black"}`}>LOGIN</NavLink>
-                                } */}
+                            }
+                            {
+                                user && user?.email ?
+                                    <button onClick={logOut} className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2  md:py-6 py-1 md:text-[20px] `}>LOGOUT</button>
+                                    :
+                                    <Link to='login' className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
+                            }
                             <label className="flex items-center cursor-pointer">
                                 {/* <input
                                         type="checkbox"

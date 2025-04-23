@@ -1,17 +1,55 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
+import { toast, ToastContainer, Zoom } from 'react-toastify';
+import AuthContext from '../../context/AuthContext';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [error] = useState({})
+    const { createUser,setUser,updateUserProfile } = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        // name validation
+        if (name.length < 5) {
+            toast.warn('must be more the 5 character long', {
+                position: "top-center",
+                closeOnClick: true,
+                transition: Zoom,
+            })
+            return
+        }
+        const photo = form.photo.value
+        const email = form.email.value
+        const password = form.password.value
+        // password validation
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*)[A-Za-z\d@$!%*?&]{6,}$/;
+        if (!regex.test(password)) {
+            toast.warn('Must be One Uppercase,One Lowercase,One Number ', {
+                position: "top-center",
+                closeOnClick: true,
+                transition: Zoom,
+            })
+            return
+        }
+        createUser(email, password)
+            .then(result => {
+                const user = result.user
+                setUser(user)
+                updateUserProfile({ displayName: name, photoURL: photo })
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div className={`hero py-12 md:h-[800px] bg-cover justify-center items-center`} style={{ backgroundImage: "url('../../src/assets/pexels-photo-9130253.jpeg')" }}>
                 <div className="hero-content flex-col md:flex-row-reverse  gap-0 ">
                     <div className="card bg-transparent border border-white backdrop-blur-[10px] md:w-[400px]  rounded-[10px]  shrink-0 ">

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
+import { toast, ToastContainer, Zoom } from 'react-toastify';
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
+    const {userSignin ,setUser} = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -12,10 +15,28 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         console.log(email,password);
+
+        userSignin(email, password)
+            .then(result => {
+                const user = result.user
+                setUser(user)
+                console.log(result.user);
+
+            })
+            .catch(error => {
+                if (error) {
+                    toast.warn('please provide a valid password',{
+                        position: "top-center",
+                        closeOnClick: true,
+                        transition: Zoom,
+                    });
+                }
+            })
     }
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
            <div className={`hero md:h-[800px] bg-cover items-center`} style={{backgroundImage: "url('../../src/assets/pexels-photo-2049422.jpeg')"}}>
                 <div className="hero-content flex-col md:flex-row-reverse gap-0 ">
                     <div className="text-center lg:text-left">
