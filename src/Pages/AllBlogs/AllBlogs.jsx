@@ -27,7 +27,6 @@ const AllBlogs = () => {
             <div className='py-4 md:flex justify-between lg:mx-10 md:mx-5 mx-4 space-y-4 md:space-y-0'>
                 <div className=''>
                     <select value={category} onChange={(e) => setCategory(e.target.value)} defaultValue='Blog Type' name='JobType' className="select md:w-48 ">
-                        <option disabled >Blog Type</option>
                         <option value="All">All</option>
                         <option value="Food">Food</option>
                         <option value="Travel">Travel</option>
