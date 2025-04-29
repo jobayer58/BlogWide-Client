@@ -15,17 +15,25 @@ import Home from './Pages/Home/Home';
 import WishList from './Pages/WishList/WishList';
 import Register from './Pages/Authentication/Register';
 import AuthProvider from './context/AuthProvider';
+import ErrorPage from './Pages/Home/ErrorPage';
+import PostBlogDetails from './Pages/Home/PostBlogDetails';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <h1>not found</h1>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: 'home',
+        path: '/',
         element: <Home></Home>
       },
+      {
+        path: '/blogs/details/:id',
+        element: <PostBlogDetails></PostBlogDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+      }
+      ,
       {
         path: 'addBlog',
         element: <AddBlog></AddBlog>
