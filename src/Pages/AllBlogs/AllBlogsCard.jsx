@@ -35,7 +35,7 @@ const AllBlogsCard = ({ blog }) => {
         }
 
         if (isAdded) {
-            toast.info("This Item All Ready added My Collection", {
+            toast.info("This Item All Ready added your wish list", {
                 position: "top-center",
                 closeOnClick: true,
                 transition: Slide,

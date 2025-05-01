@@ -21,9 +21,14 @@ const PostBlogDetails = () => {
                     <h1>{publishDate}</h1>
                     <h2 className='flex gap-2 '>
                         {
-                            tags.map((tag,index) => <button key={index} className='btn btn-soft btn-primary'>{tag}</button>)
+                            tags.map((tag, index) => <button key={index} className='btn btn-soft btn-primary'>{tag}</button>)
                         }
                     </h2>
+                    <p>{category}</p>
+                    <p>{readTime}</p>
+                    <p>{readingLevel}</p>
+                    <p>{language}</p>
+                    <p>{isFeature}</p>
                     <div className="card-actions">
                         <button className="btn btn-primary">Buy Now</button>
                     </div>

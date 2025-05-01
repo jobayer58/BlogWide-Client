@@ -17,6 +17,7 @@ import Register from './Pages/Authentication/Register';
 import AuthProvider from './context/AuthProvider';
 import ErrorPage from './Pages/Home/ErrorPage';
 import PostBlogDetails from './Pages/Home/PostBlogDetails';
+import WishListDetails from './Pages/WishList/WishListDetails';
 
 const router = createBrowserRouter([
   {
@@ -32,8 +33,12 @@ const router = createBrowserRouter([
         path: '/blogs/details/:id',
         element: <PostBlogDetails></PostBlogDetails>,
         loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
-      }
-      ,
+      },
+      {
+        path: '/wishList/details/:id',
+        element: <WishListDetails></WishListDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/wishList/${params.id}`)
+      },
       {
         path: 'addBlog',
         element: <AddBlog></AddBlog>
