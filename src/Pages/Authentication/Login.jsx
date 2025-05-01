@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
 
@@ -8,6 +8,8 @@ import { toast, ToastContainer, Zoom } from 'react-toastify';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const {userSignin ,setUser,signinWithGoogle} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleLogin = e => {
         e.preventDefault()
@@ -20,8 +22,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 setUser(user)
-                console.log(result.user);
-
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 if (error) {

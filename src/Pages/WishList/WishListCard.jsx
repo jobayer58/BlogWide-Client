@@ -54,7 +54,7 @@ const WishListCard = ({ wish, wishItem, setWishItem }) => {
             <td className="border border-gray-300 p-2">{language}</td>
             <td className="border border-gray-300 p-2">
                 <div className="flex gap-2">
-                    <Link to={`/blogs/details/${wish._id}`}>
+                    <Link to='/allBlogs'>
                         <button className="btn btn-outline btn-info">Details</button>
                     </Link>
                     <button onClick={() => handleDeleteItem(_id)}>

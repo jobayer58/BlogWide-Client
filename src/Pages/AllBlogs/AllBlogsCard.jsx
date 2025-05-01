@@ -5,7 +5,7 @@ import { Slide, toast, ToastContainer } from 'react-toastify';
 
 const AllBlogsCard = ({ blog }) => {
     const { imgUrl, headline, shortDescription, category, author ,_id} = blog
-    const {user,loading} =useContext(AuthContext)
+    const {user} =useContext(AuthContext)
 
     const [isAdded, setIsAdded] = useState(false);
 
@@ -22,10 +22,6 @@ const AllBlogsCard = ({ blog }) => {
                 });
         }
     }, [user?.email, _id]);
-
-    if (loading) {
-        return <span className="loading loading-ring loading-xl"></span>
-    }
 
     const handleAddToWishList = async () => {
 
