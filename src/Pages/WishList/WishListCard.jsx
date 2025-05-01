@@ -42,7 +42,7 @@ const WishListCard = ({ wish, wishItem, setWishItem }) => {
 
     return (
 
-        <tr className="hover:bg-gray-50">
+        <tr className="hover:bg-gray-50 text-center">
             <td className="border border-gray-300 p-2">
                 <img src={imgUrl} className="h-24 w-full object-cover  rounded" />
             </td>

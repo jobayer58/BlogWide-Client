@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
 import AuthContext from '../../context/AuthContext';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [error] = useState({})
+    const navigate = useNavigate()
     const { createUser,setUser,updateUserProfile,signinWithGoogle } = useContext(AuthContext)
 
     const handleRegister = e => {
@@ -40,7 +41,9 @@ const Register = () => {
                 const user = result.user
                 setUser(user)
                 updateUserProfile({ displayName: name, photoURL: photo })
-                console.log(result.user);
+                .then(() => {
+                    navigate('/')
+                })
             })
             .catch(error => {
                 console.log(error.message);

@@ -22,7 +22,7 @@ const WishList = () => {
                 user?.displayName && <h1 className='text-center text-2xl'>I Am {user?.displayName}</h1>
             }
 
-            <p className='md:text-2xl text-xl md:px-10 px-3 py-2'>My Collection List : ({wishItem.length}) Item</p>
+            <p className='md:text-2xl text-xl md:px-10 px-3 py-2'>My Wish List : ({wishItem.length}) Item</p>
             <div className="overflow-x-auto w-full py-4 md:px-10 px-3">
                 {/* Table Head */}
                 <table className="min-w-[800px] w-full border border-gray-300 table-fixed ">
