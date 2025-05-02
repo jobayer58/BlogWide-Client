@@ -17,7 +17,6 @@ import Register from './Pages/Authentication/Register';
 import AuthProvider from './context/AuthProvider';
 import ErrorPage from './Pages/Home/ErrorPage';
 import PostBlogDetails from './Pages/Home/PostBlogDetails';
-import WishListDetails from './Pages/WishList/WishListDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
