@@ -18,6 +18,7 @@ import AuthProvider from './context/AuthProvider';
 import ErrorPage from './Pages/Home/ErrorPage';
 import PostBlogDetails from './Pages/Home/PostBlogDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import UpdateBlog from './Pages/AddBlog/UpdateBlog';
 
 const router = createBrowserRouter([
   {
@@ -34,14 +35,14 @@ const router = createBrowserRouter([
         element: <PrivateRoute><PostBlogDetails></PostBlogDetails></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
       },
-      // {
-      //   path: '/wishList/details/:id',
-      //   element: <WishListDetails></WishListDetails>,
-      //   loader: ({params}) => fetch(`http://localhost:5000/wishList?email=${params.id}`)
-      // },
       {
         path: 'addBlog',
         element: <PrivateRoute><AddBlog></AddBlog></PrivateRoute>
+      },
+      {
+        path: '/blogs/update/:id',
+        element: <UpdateBlog></UpdateBlog>,
+        loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
       },
       {
         path: 'features',

@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const WishListCard = ({ wish, wishItem, setWishItem }) => {
 
-    const { headline, imgUrl, shortDescription, category, author, publishDate, language,_id } = wish
+    const { headline, imgUrl, shortDescription, category, author, publishDate, language, _id } = wish
 
     const handleDeleteItem = _id => {
         Swal.fire({
@@ -18,7 +18,6 @@ const WishListCard = ({ wish, wishItem, setWishItem }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-
                 fetch(`http://localhost:5000/wishList/${_id}`, {
                     method: 'DELETE'
                 })

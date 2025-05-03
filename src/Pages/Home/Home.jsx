@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Banner from './Banner';
 import PostBlog from './PostBlog';
 import AuthContext from '../../context/AuthContext';
+import NewsLetter from './NewsLetter';
 
 const Home = () => {
     const {loading} =useContext(AuthContext)
@@ -14,6 +15,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <PostBlog></PostBlog>
+            <NewsLetter></NewsLetter>
         </div>
     );
 };

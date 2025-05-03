@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import { Slide, toast, ToastContainer } from 'react-toastify';
+import userIcon from '../../assets/male.png'
 
 const AllBlogsCard = ({ blog }) => {
-    const { imgUrl, headline, shortDescription, category, author ,_id} = blog
-    const {user} =useContext(AuthContext)
+    const { imgUrl, headline, shortDescription, category, author, _id } = blog
+    const { user } = useContext(AuthContext)
 
     const [isAdded, setIsAdded] = useState(false);
 
@@ -54,7 +55,7 @@ const AllBlogsCard = ({ blog }) => {
         });
         const data = await response.json();
         if (data.insertedId) {
-            toast("Added to My Collection Successfully!", {
+            toast("Added to Your Wish List Successfully!", {
                 position: "top-center",
                 closeOnClick: true,
                 transition: Slide,
@@ -63,7 +64,6 @@ const AllBlogsCard = ({ blog }) => {
             toast.warn(data.message || "Something went wrong!");
         }
     };
-
 
     return (
         <div>
@@ -80,7 +80,10 @@ const AllBlogsCard = ({ blog }) => {
                     </h2>
                     <button className='btn'>{category}</button>
                     <p className=''>{shortDescription}</p>
-                    <p className='text-xl'>Author: {author}</p>
+                    <div className='flex justify-center items-center gap-2'>
+                        <img className="md:w-10 md:h-10 w-10 h-10 rounded-full object-cover" src={userIcon} alt="" />
+                        <p className='text-xl'> {author}</p>
+                    </div>
                     <div className="card-actions justify-end">
                         <Link to={`/blogs/details/${blog._id}`}>
                             <button className='btn btn-outline btn-info'>Details</button>
