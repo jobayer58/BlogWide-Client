@@ -72,7 +72,7 @@ const PostBlogDetails = () => {
                 )}
             </div>
             <div>
-                <h1 className='text-center font-semibold md:text-3xl text-3xl'>Total Comments:({comments.length})</h1>
+                <h1 className='text-center font-semibold md:text-3xl text-3xl py-4'>Total Comments:({comments.length})</h1>
                 <div className="grid md:grid-cols-3 gap-6 px-10 py-8">
                     {
                         comments.map(com => <CommentsCard key={com._id} com={com}></CommentsCard>)

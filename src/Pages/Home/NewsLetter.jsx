@@ -42,7 +42,7 @@ const NewsLetter = () => {
                         <strong>Phone:</strong> +880 1234-567890
                     </p>
                     <p className="mb-2">
-                        <strong>Email:</strong> BlogWidw@gmail.com
+                        <strong>Email:</strong> BlogWide@gmail.com
                     </p>
                     <p className="mb-4">
                         <strong>Address:</strong> 123, Bashundhara, Dhaka

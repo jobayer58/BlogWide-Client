@@ -3,6 +3,8 @@ import Banner from './Banner';
 import PostBlog from './PostBlog';
 import AuthContext from '../../context/AuthContext';
 import NewsLetter from './NewsLetter';
+import TopWriter from './TopWriter';
+import AboutUs from './AboutUs';
 
 const Home = () => {
     const {loading} =useContext(AuthContext)
@@ -16,6 +18,8 @@ const Home = () => {
             <Banner></Banner>
             <PostBlog></PostBlog>
             <NewsLetter></NewsLetter>
+            <TopWriter></TopWriter>
+            <AboutUs></AboutUs>
         </div>
     );
 };
