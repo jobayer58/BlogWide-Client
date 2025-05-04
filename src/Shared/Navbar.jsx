@@ -8,11 +8,21 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
 
     const links = <>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/addBlog'>Add Blog</NavLink>
-        <NavLink to='/allBlogs'>All BLogs</NavLink>
-        <NavLink to='/features'>Features</NavLink>
-        <NavLink to='/wishList'>Wish List</NavLink>
+        <NavLink to='/' className={({ isActive }) =>
+          isActive ? "text-[#4DC879] font-semibold" : "text-black"
+        }>Home</NavLink>
+        <NavLink to='/addBlog' className={({ isActive }) =>
+          isActive ? "text-[#4DC879] font-semibold" : "text-black"
+        }>Add Blog</NavLink>
+        <NavLink to='/allBlogs' className={({ isActive }) =>
+          isActive ? "text-[#4DC879] font-semibold" : "text-black"
+        }>All BLogs</NavLink>
+        <NavLink to='/features' className={({ isActive }) =>
+          isActive ? "text-[#4DC879] font-semibold" : "text-black"
+        }>Features</NavLink>
+        <NavLink to='/wishList' className={({ isActive }) =>
+          isActive ? "text-[#4DC879] font-semibold" : "text-black"
+        }>Wish List</NavLink>
     </>
     return (
         // className='object-cover w-full h-auto bg-cover overflow-hidden' style={{backgroundImage: "url('../../src/assets/pexels-photo-2049422.jpeg')"}}
@@ -41,9 +51,9 @@ const Navbar = () => {
                                 {links}
                                 {
                                     user && user?.email ?
-                                        <button onClick={logOut} className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2  md:py-6 py-1 md:text-[20px] `}>LOGOUT</button>
+                                        <button onClick={logOut} className={`btn-outline btn-success btn md:px-8 px-2  md:py-6 py-1 md:text-[20px] `}>LOGOUT</button>
                                         :
-                                        <Link to='login' className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
+                                        <Link to='login' className={`btn-outline btn-primary btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
                                 }
                             </ul>
                         </div>
@@ -71,9 +81,9 @@ const Navbar = () => {
                             }
                             {
                                 user && user?.email ?
-                                    <button onClick={logOut} className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2  md:py-6 py-1 md:text-[20px] `}>LOGOUT</button>
+                                    <button onClick={logOut} className={`btn-outline btn-success btn md:px-8 px-2  md:py-6 py-1 md:text-[20px] `}>LOGOUT</button>
                                     :
-                                    <Link to='login' className={`bg-gradient-to-r from-[#f6ea6b] to-[#eef4ad] btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
+                                    <Link to='login' className={`btn-outline btn-primary btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
                             }
                             <label className="flex items-center cursor-pointer">
                                 {/* <input

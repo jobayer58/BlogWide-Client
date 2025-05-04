@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const UpdateBlog = () => {
 
     const updateBlogs = useLoaderData()
-    const { headline, imgUrl, description, shortDescription, category, author, publishDate, readTime, tags, readingLevel, language, _id, userEmail } = updateBlogs
+    const { headline, imgUrl, description, shortDescription, category, author, publishDate, readTime, tags, readingLevel, language, _id, userEmail ,userImage} = updateBlogs
 
     const navigate = useNavigate();
     const [blog, setBlog] = useState({});
@@ -33,7 +33,7 @@ const UpdateBlog = () => {
             tags: form.tags.value,
             readingLevel: form.readingLevel.value,
             userEmail: form.email.value,
-            isFeatured: form.isFeatured.value === 'True' ? true : false
+            userImage: form.userImage.value,
         };
 
         fetch(`http://localhost:5000/blogs/${_id}`, {
@@ -149,14 +149,11 @@ const UpdateBlog = () => {
                             <input defaultValue={userEmail} type="text" required name='email' className="input w-full" placeholder="Author Email" />
                         </fieldset>
                     </div>
-                    {/* isFeatured */}
+                    {/* Author Photo */}
                     <div className='md:w-1/2'>
                         <fieldset className="fieldset">
-                            <label className="fieldset-label font-normal text-[16px] text-white ">IsFeatured</label>
-                            <select defaultValue='Pick a Reding Level' name='isFeatured' className="select w-full">
-                                <option>True</option>
-                                <option>False</option>
-                            </select>
+                        <legend className="fieldset-legend font-normal text-[16px] text-white">Author Photo(your photo link)</legend>
+                        <input defaultValue={userImage} type="text" required name='userImage' className="input w-full" placeholder="Author Photo(your photo link)" />
                         </fieldset>
                     </div>
                 </div>

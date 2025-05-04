@@ -81,7 +81,11 @@ const AllBlogsCard = ({ blog }) => {
                     <button className='btn'>{category}</button>
                     <p className=''>{shortDescription}</p>
                     <div className='flex justify-center items-center gap-2'>
-                        <img className="md:w-10 md:h-10 w-10 h-10 rounded-full object-cover" src={userIcon} alt="" />
+                        <img
+                            className="md:w-10 md:h-10 w-10 h-10 rounded-full object-cover"
+                            src={blog.userImage ? blog.userImage : userIcon}
+                            alt="Author"
+                        />
                         <p className='text-xl'> {author}</p>
                     </div>
                     <div className="card-actions justify-end">

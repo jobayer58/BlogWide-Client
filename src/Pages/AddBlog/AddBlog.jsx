@@ -136,11 +136,8 @@ const AddBlog = () => {
                     {/* isFeatured */}
                     <div className='md:w-1/2'>
                         <fieldset className="fieldset">
-                            <label className="fieldset-label font-normal text-[16px] text-white ">IsFeatured</label>
-                            <select defaultValue='Pick a Reding Level' name='isFeatured' className="select w-full">
-                                <option>True</option>
-                                <option>False</option>
-                            </select>
+                        <legend className="fieldset-legend font-normal text-[16px] text-white">Author Photo(your photo link)</legend>
+                        <input defaultValue={user?.photoURL} type="text" required name='userImage' className="input w-full" placeholder="Author Photo(your photo link)" />
                         </fieldset>
                     </div>
                 </div>
