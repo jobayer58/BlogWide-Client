@@ -27,11 +27,11 @@ const TopWriter = () => {
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">{top.author}</h2>
-                                    <h1 className='text-2xl font-bold'>{top.headline}</h1>
-                                    <p>{top.shortDescription}</p>
+                                    <h1 className='text-2xl font-bold'>Total Blog Post: {top.postCount}</h1>
+                                    <p className=''>Usage Total Word: {top.totalWords}</p>
                                     <div className="card-actions">
-                                        <Link to={`/blogs/details/${top._id}`}>
-                                            <button className="btn btn-primary">Details</button>
+                                        <Link to='/addBlog'>
+                                            <button className="btn btn-outline btn-success">Get Stared</button>
                                         </Link>
                                     </div>
                                 </div>

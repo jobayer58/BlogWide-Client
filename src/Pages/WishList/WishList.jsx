@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../context/AuthContext';
-import { NavLink } from 'react-router-dom';
 import WishListCard from './WishListCard';
 
 const WishList = () => {

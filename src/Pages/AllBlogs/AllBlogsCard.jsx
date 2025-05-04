@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
-import { Slide, toast, ToastContainer } from 'react-toastify';
+import { Slide, toast, ToastContainer, Zoom } from 'react-toastify';
 import userIcon from '../../assets/male.png'
 
 const AllBlogsCard = ({ blog }) => {
@@ -27,7 +27,11 @@ const AllBlogsCard = ({ blog }) => {
     const handleAddToWishList = async () => {
 
         if (!user?.email) {
-            alert("Please log in to add items to your list.");
+            toast.warn("Please log in to add items to your Wish list.", {
+                position: "top-center",
+                closeOnClick: true,
+                transition: Zoom,
+            });
             return;
         }
 

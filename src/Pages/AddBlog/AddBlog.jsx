@@ -11,10 +11,8 @@ const AddBlog = () => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
-        // console.log(initialData);
         const { ...newBlogs } = initialData
         newBlogs.tags = newBlogs.tags.split('\n')
-        // console.log(newBlogs);
 
         Swal.fire({
             title: "Are you sure?",
@@ -166,7 +164,6 @@ const AddBlog = () => {
                     <label className="fieldset-label text-white">Blog Tags</label>
                     <textarea className="textarea w-full" name='tags' required placeholder="put blog related tags"></textarea>
                     {/* Blog Details Description */}
-                    {/* text-[#07bc0c] */}
                     <label className="fieldset-label text-white">Blog Details Description</label>
                     <textarea className="textarea w-full" name='description' required placeholder="put blog related details Description"></textarea>
                 </div>

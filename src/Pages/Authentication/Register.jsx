@@ -46,22 +46,25 @@ const Register = () => {
                 })
             })
             .catch(error => {
-                console.log(error.message);
+                error.message
             })
     }
 
     const handleGoogleSignin = () => {
         signinWithGoogle()
             .then(result => {
-                console.log(result.user);
+                result.user
             })
             .catch(error => {
-                console.log(error.message);
+                error.message
             })
     }
 
     return (
         <div>
+            <button className='text-red-500 rounded p-1 bg-white md:text-3xl '>
+                <p className=''>Note: if you create image url(link).click this button and get direct link <button className='btn btn-accent'><a target='_blank' href="https://postimages.org/">Click me</a></button></p>
+            </button>
             <ToastContainer></ToastContainer>
             <div className={`hero py-12 md:h-[800px] bg-cover justify-center items-center`} style={{ backgroundImage: "url('../../src/assets/pexels-photo-9130253.jpeg')" }}>
                 <div className="hero-content flex-col md:flex-row-reverse  gap-0 ">

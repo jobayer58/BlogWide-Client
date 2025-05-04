@@ -24,7 +24,6 @@ const PostBlogDetails = () => {
 
     return (
         <div key={_id}>
-            {/* lg:w-14/16 */}
             <div className="card bg-base-100  lg:w-4/6 mx-auto  shadow-sm ">
                 <figure className="px-5 pt-5">
                     <img

@@ -100,25 +100,25 @@ const Features = () => {
     const customStyles = {
         table: {
             style: {
-                border: '1px solid #d1d5db', // Tailwind border-gray-300
+                border: '1px solid #d1d5db', 
             },
         },
         rows: {
             style: {
-                borderBottom: '1px solid #e5e7eb', // Tailwind border-gray-200
+                borderBottom: '1px solid #e5e7eb', 
                 padding: '12px 0',
             },
         },
         headRow: {
             style: {
-                backgroundColor: '#f9fafb', // Tailwind bg-gray-50
+                backgroundColor: '#f9fafb', 
                 fontWeight: 'bold',
             },
         },
         headCells: {
             style: {
                 padding: '10px',
-                color: '#1f2937', // Tailwind text-gray-800
+                color: '#1f2937', 
             },
         },
         cells: {
@@ -135,7 +135,7 @@ const Features = () => {
 
                 {/* Responsive Scrollable Container */}
                 <div className="overflow-x-auto">
-                    <div className="min-w-[600px]"> {/* Prevent squishing on mobile */}
+                    <div className="min-w-[600px]"> 
                         <DataTable
                             columns={columns}
                             data={blogs}

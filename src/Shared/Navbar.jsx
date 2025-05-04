@@ -25,7 +25,6 @@ const Navbar = () => {
         }>Wish List</NavLink>
     </>
     return (
-        // className='object-cover w-full h-auto bg-cover overflow-hidden' style={{backgroundImage: "url('../../src/assets/pexels-photo-2049422.jpeg')"}}
         <div >
             <div className="">
                 <div className="navbar flex justify-around items-center">
@@ -85,14 +84,6 @@ const Navbar = () => {
                                     :
                                     <Link to='login' className={`btn-outline btn-primary btn md:px-8 px-2 md:py-6 py-2 md:text-[20px]`}>LOGIN</Link>
                             }
-                            <label className="flex items-center cursor-pointer">
-                                {/* <input
-                                        type="checkbox"
-                                        className="toggle theme-controller"
-                                        checked={theme === "dark"}
-                                        onChange={() => setTheme(theme === "light" ? "dark" : "light")}
-                                    /> */}
-                            </label>
                         </div>
                     </div>
                 </div>

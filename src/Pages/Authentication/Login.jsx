@@ -16,7 +16,6 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        console.log(email,password);
 
         userSignin(email, password)
             .then(result => {
@@ -38,10 +37,10 @@ const Login = () => {
     const handleGoogleSignin = () => {
         signinWithGoogle()
             .then(result => {
-                console.log(result.user);
+                result.user
             })
             .catch(error => {
-                console.log(error.message);
+                error.message
             })
     }
 
