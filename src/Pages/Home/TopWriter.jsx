@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Slide } from 'react-awesome-reveal';
 import { Link } from 'react-router-dom';
 
 const TopWriter = () => {
@@ -13,7 +14,9 @@ const TopWriter = () => {
 
     return (
         <div className='py-8'>
-            <h1 className='text-3xl text-center pb-5 font-semibold px-2 mx-auto'>Good writers on this BlogWide</h1>
+            <Slide>
+                <h1 className='text-3xl text-center pb-5 font-semibold px-2 mx-auto'>Good writers on this BlogWide</h1>
+            </Slide>
             <div className='grid md:grid-cols-3 w-10/14 mx-auto gap-5 items-stretch'>
                 {
                     topWriter.map(top =>

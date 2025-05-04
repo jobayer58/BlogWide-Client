@@ -37,7 +37,8 @@ BlogWide is a full-stack MERN (MongoDB, Express.js, React, Node.js) application 
 - framer motion
 - React-data-table
 - react toastify
-- SweetAlert2
+- SweetAlert2 
+- react awesome reveal
 
 ### Backend
 - Node.js
