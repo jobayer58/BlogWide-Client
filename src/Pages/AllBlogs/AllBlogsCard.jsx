@@ -82,7 +82,7 @@ const AllBlogsCard = ({ blog }) => {
                     <h2 className="card-title">
                         {headline}
                     </h2>
-                    <button className='btn'>{category}</button>
+                    <button className='btn text-xl'>{category}</button>
                     <p className=''>{shortDescription}</p>
                     <div className='flex justify-center items-center gap-2'>
                         <img
