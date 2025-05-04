@@ -5,7 +5,7 @@ const PostBlog = () => {
     const [blogs, setBlogs] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/homeBlogs')
+        fetch('https://blog-wide-server.vercel.app/homeBlogs')
             .then(res => res.json())
             .then(data => {
                 const shuffled = data.sort(() => 0.5 - Math.random());

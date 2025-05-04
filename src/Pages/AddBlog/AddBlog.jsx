@@ -25,7 +25,7 @@ const AddBlog = () => {
             confirmButtonText: "Yes, Submit it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('http://localhost:5000/blogs', {
+                fetch('https://blog-wide-server.vercel.app/blogs', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

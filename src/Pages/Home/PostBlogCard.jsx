@@ -12,7 +12,7 @@ const PostBlogCard = ({ blog }) => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/wishList?email=${user.email}`)
+            fetch(`https://blog-wide-server.vercel.app/wishList?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     const exists = data.some(item => String(item._id) === String(_id));
@@ -52,7 +52,7 @@ const PostBlogCard = ({ blog }) => {
         };
 
 
-        const response = await fetch('http://localhost:5000/wishList', {
+        const response = await fetch('https://blog-wide-server.vercel.app/wishList', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(itemWithUser)

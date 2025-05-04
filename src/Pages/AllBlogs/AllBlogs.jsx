@@ -13,7 +13,7 @@ const AllBlogs = () => {
             if (category !== 'All') queryParams.append('category', category);
             if (search) queryParams.append('search', search);
 
-            const res = await fetch(`http://localhost:5000/blogs?${queryParams.toString()}`);
+            const res = await fetch(`https://blog-wide-server.vercel.app/blogs?${queryParams.toString()}`);
             const data = await res.json();
             setBlogs(data);
         };

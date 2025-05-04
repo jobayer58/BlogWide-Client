@@ -17,7 +17,7 @@ const Comment = ({ blogId, fetchComments }) => {
             date: new Date(),
           };
         
-          const res = await fetch('http://localhost:5000/comment', {
+          const res = await fetch('https://blog-wide-server.vercel.app/comment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(commentData),

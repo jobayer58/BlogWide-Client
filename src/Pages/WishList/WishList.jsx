@@ -9,7 +9,7 @@ const WishList = () => {
     const [wishItem, setWishItem] = useState([])
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/wishList?email=${user.email}`)
+            fetch(`https://blog-wide-server.vercel.app/wishList?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => setWishItem(data));
         }

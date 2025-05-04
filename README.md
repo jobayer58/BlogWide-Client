@@ -1,12 +1,51 @@
-# React + Vite
+# BlogWide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **BlogWide** is a modern and user-friendly blogging platform where users can easily write, read, and share blog posts. It serves as an open space for expressing ideas and sharing knowledge across various categories.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# DESCRIPTION
 
-## Expanding the ESLint configuration
+BlogWide is a full-stack MERN (MongoDB, Express.js, React, Node.js) application that allows users to:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Write and publish blog posts
+- Filter blogs by category, language, or level
+- Read detailed blog articles
+- Comment on others' posts
+- Discover top writers based on post count and word count
+
+## 🚀 Key Features
+
+- 🔐 Firebase Authentication (Login/Register)
+- 📝 Full Blog CRUD functionality
+- 📊 Top Writer section based on post and word count
+- 💬 Comment System with backend support
+- 🔍 Filtering by Category, Language, and Reading Level
+- 🎨 Fully Responsive UI using Tailwind CSS & DaisyUI
+- ⚙️ Backend API with Express & MongoDB
+- 🌐 Hosted on Firebase
+
+## 🛠️ Tech Stack & NPM Packages
+
+### Frontend
+- React
+- Tailwind CSS
+- DaisyUI
+- React Router DOM
+- Axios
+- Firebase
+- React Toastify
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- CORS
+- dotenv
+
+---
+
+## 🔗 Live Site
+
+👉 [BlogWide Live](https://blogwide-d9a9c.web.app/)
+
+---

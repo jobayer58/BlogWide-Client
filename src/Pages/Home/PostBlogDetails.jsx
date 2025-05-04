@@ -13,7 +13,7 @@ const PostBlogDetails = () => {
     const tagList = Array.isArray(tags) ? tags : tags.split(',');
 
     const fetchComments = async () => {
-        const res = await fetch(`http://localhost:5000/comment/${blogDetails._id}`);
+        const res = await fetch(`https://blog-wide-server.vercel.app/comment/${blogDetails._id}`);
         const data = await res.json();
         setComments(data);
     };

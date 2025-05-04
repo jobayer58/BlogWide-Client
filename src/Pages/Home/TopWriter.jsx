@@ -6,14 +6,14 @@ const TopWriter = () => {
     const [topWriter, setTopWriter] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/topWriter')
+        fetch('https://blog-wide-server.vercel.app/topWriter')
             .then(res => res.json())
             .then(data => setTopWriter(data));
     }, []);
 
     return (
         <div className='py-8'>
-            <h1 className='text-3xl text-center pb-5 font-semibold'>Good writers on this BlogWide</h1>
+            <h1 className='text-3xl text-center pb-5 font-semibold px-2 mx-auto'>Good writers on this BlogWide</h1>
             <div className='grid md:grid-cols-3 w-10/14 mx-auto gap-5 items-stretch'>
                 {
                     topWriter.map(top =>

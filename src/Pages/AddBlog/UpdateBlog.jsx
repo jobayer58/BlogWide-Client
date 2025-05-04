@@ -12,7 +12,7 @@ const UpdateBlog = () => {
     const [blog, setBlog] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs/${_id}`)
+        fetch(`https://blog-wide-server.vercel.app/blogs/${_id}`)
             .then(res => res.json())
             .then(data => setBlog(data));
     }, [_id]);
@@ -37,7 +37,7 @@ const UpdateBlog = () => {
             userImage: form.userImage.value,
         };
 
-        fetch(`http://localhost:5000/blogs/${_id}`, {
+        fetch(`https://blog-wide-server.vercel.app/blogs/${_id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedBlog),

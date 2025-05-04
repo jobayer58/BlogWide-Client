@@ -6,7 +6,7 @@ const Features = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/topBlogs')
+        fetch('https://blog-wide-server.vercel.app/topBlogs')
             .then(res => res.json())
             .then(data => setBlogs(data));
     }, []);

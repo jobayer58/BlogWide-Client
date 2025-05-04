@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: '/blogs/details/:id',
         element: <PrivateRoute><PostBlogDetails></PostBlogDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+        loader: ({params}) => fetch(`https://blog-wide-server.vercel.app/blogs/${params.id}`)
       },
       {
         path: 'addBlog',
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: '/blogs/update/:id',
         element: <UpdateBlog></UpdateBlog>,
-        loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+        loader: ({params}) => fetch(`https://blog-wide-server.vercel.app/blogs/${params.id}`)
       },
       {
         path: 'features',
