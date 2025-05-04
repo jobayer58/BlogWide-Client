@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import bannerImg from '../../assets/bird5.jpeg'
 
 const Banner = () => {
 
     return (
-        <div className="md:bg-[url('../../src/assets/bird5.jpeg')] bg-[url('../../src/assets/bird7.jpeg')] bg-cover bg-center h-[400px] w-full object-cover text-white flex items-center justify-center" >
+        <div className="bg-cover bg-center h-[400px] w-full object-cover text-white flex items-center justify-center" style={{backgroundImage: `url(${bannerImg})`}} >
             <div className="text-center space-y-6 max-w-3xl px-4 bg-transparent backdrop-blur-[2px]">
                 <motion.h1
                     initial={{ y: -50, opacity: 0 }}
@@ -23,7 +24,7 @@ const Banner = () => {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="md:text-gray-600 text-gray-300 text-lg "
+                    className="md:text-gray-600 text-gray-800 text-lg "
                 >
                     Explore thousands of blogs or write your own. From tech to travel, lifestyle to learning — BlogWide connects readers with real stories and ideas.
                 </motion.p>

@@ -1,9 +1,10 @@
 import React from 'react';
+import aboutImg from '../../assets/bird4.jpeg'
 
 const AboutUs = () => {
     return (
         <div>
-            <section className="bg-[url('../../src/assets/bird4.jpeg')] bg-cover bg-center md:h-[550px] w-full object-cover bg-gray-100 py-16 px-5 lg:px-20 flex items-center justify-center">
+            <section className=" bg-cover bg-center md:h-[550px] w-full object-cover bg-gray-100 py-16 px-5 lg:px-20 flex items-center justify-center" style={{backgroundImage: `url(${aboutImg})`}}>
                 <div className="max-w-6xl mx-auto text-center">
                     <h2 className="text-4xl font-bold text-gray-800 mb-6">About BlogWide</h2>
                     <p className="text-lg text-gray-900 mb-10 leading-relaxed">

@@ -3,6 +3,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
 import AuthContext from '../../context/AuthContext';
+import registerImg from '../../assets/pexels-photo-9130253.jpeg'
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -54,6 +55,7 @@ const Register = () => {
         signinWithGoogle()
             .then(result => {
                 result.user
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 error.message
@@ -66,7 +68,7 @@ const Register = () => {
                 <p className=''>Note: if you create image url(link).click this button and get direct link <button className='btn btn-accent'><a target='_blank' href="https://postimages.org/">Click me</a></button></p>
             </button>
             <ToastContainer></ToastContainer>
-            <div className={`hero py-12 md:h-[800px] bg-cover justify-center items-center`} style={{ backgroundImage: "url('../../src/assets/pexels-photo-9130253.jpeg')" }}>
+            <div className={`hero py-12 md:h-[800px] bg-cover justify-center items-center`} style={{backgroundImage: `url(${registerImg})`}}>
                 <div className="hero-content flex-col md:flex-row-reverse  gap-0 ">
                     <div className="card bg-transparent border border-white backdrop-blur-[10px] md:w-[400px]  rounded-[10px]  shrink-0 ">
                         <form onSubmit={handleRegister} className="card-body justify-center items-center ">

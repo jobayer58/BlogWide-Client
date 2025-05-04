@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import addImg from '../../assets/addBlog.jpg'
 
 const AddBlog = () => {
     const { user } = useContext(AuthContext)
@@ -48,7 +49,7 @@ const AddBlog = () => {
     }
 
     return (
-        <div className='lg:p-10 p-4  md:p-6 bg-cover' style={{ backgroundImage: "url('../../src/assets/addBlog.jpg')" }}>
+        <div className='lg:p-10 p-4  md:p-6 bg-cover' style={{backgroundImage: `url(${addImg})`}}>
             <button className='text-red-500 rounded p-1 bg-white md:text-3xl '>
                 <p className=''>Note: if you create image url(link).click this button and get direct link <button className='btn btn-accent'><a target='_blank' href="https://postimages.org/">Click me</a></button></p>
             </button>

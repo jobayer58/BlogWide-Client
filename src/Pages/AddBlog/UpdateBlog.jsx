@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import addImg from '../../assets/addBlog.jpg'
 
 const UpdateBlog = () => {
 
@@ -66,7 +67,7 @@ const UpdateBlog = () => {
     }
 
     return (
-        <div className='lg:p-10 p-4  md:p-6 bg-cover' style={{ backgroundImage: "url('../../src/assets/addBlog.jpg')" }}>
+        <div className='lg:p-10 p-4  md:p-6 bg-cover' style={{backgroundImage: `url(${addImg})`}}>
             <button className='text-red-500 rounded p-1 bg-white md:text-3xl '>
                 <p className=''>Note: if you create image url(link).click this button and get direct link <button className='btn btn-accent'><a target='_blank' href="https://postimages.org/">Click me</a></button></p>
             </button>

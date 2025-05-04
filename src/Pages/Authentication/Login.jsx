@@ -3,6 +3,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
+import loginImg from '../../assets/pexels-photo-2049422.jpeg'
 
 
 const Login = () => {
@@ -38,6 +39,7 @@ const Login = () => {
         signinWithGoogle()
             .then(result => {
                 result.user
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 error.message
@@ -47,7 +49,7 @@ const Login = () => {
     return (
         <div>
             <ToastContainer></ToastContainer>
-           <div className={`hero md:h-[800px] bg-cover items-center`} style={{backgroundImage: "url('../../src/assets/pexels-photo-2049422.jpeg')"}}>
+           <div className={`hero md:h-[800px] bg-cover items-center`} style={{backgroundImage: `url(${loginImg})`}}>
                 <div className="hero-content flex-col md:flex-row-reverse gap-0 ">
                     <div className="text-center lg:text-left">
                         <img className='md:h-[480px]' src='' alt="" />
