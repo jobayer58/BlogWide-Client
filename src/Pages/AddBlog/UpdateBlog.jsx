@@ -1,42 +1,57 @@
-import React, { useContext } from 'react';
-import AuthContext from '../../context/AuthContext';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateBlog = () => {
-    const {user} = useContext(AuthContext)
+
     const updateBlogs = useLoaderData()
-    const { headline, imgUrl, description,shortDescription, category, author, publishDate, readTime, tags, readingLevel, language,email,_id } = updateBlogs
+    const { headline, imgUrl, description, shortDescription, category, author, publishDate, readTime, tags, readingLevel, language, _id, userEmail } = updateBlogs
+
+    const navigate = useNavigate();
+    const [blog, setBlog] = useState({});
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/blogs/${_id}`)
+            .then(res => res.json())
+            .then(data => setBlog(data));
+    }, [_id]);
 
     const handleUpdate = e => {
         e.preventDefault()
-        const formData = new FormData(e.target)
-        const initialData = Object.fromEntries(formData.entries())
-        const { ...newBlogs } = initialData
-        newBlogs.tags = newBlogs.tags.split('\n')
+    
+        const form = e.target
+        const updatedBlog = {
+            headline: form.headline.value,
+            imgUrl: form.imgUrl.value,
+            author: form.author.value,
+            description: form.description.value,
+            shortDescription: form.shortDescription.value,
+            category: form.category.value,
+            language: form.language.value,
+            publishDate: form.publishDate.value,
+            readTime: form.readTime.value,
+            tags: form.tags.value,
+            readingLevel: form.readingLevel.value,
+            userEmail: form.email.value,
+            isFeatured: form.isFeatured.value === 'True' ? true : false
+        };
 
-        const updateBlog = { newBlogs }
-
-        const itemId =  _id;
-        
-        // send data to the server
-        fetch(`http://localhost:5000/blogs/${itemId}`, {
+        fetch(`http://localhost:5000/blogs/${_id}`, {
             method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updateBlog)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updatedBlog),
         })
             .then(res => res.json())
             .then(data => {
-                if (data.modifiedCount> 0) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'success!',
                         text: 'Sports Equipment update Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
-                      })
-                }else {
+                    })
+                    navigate('/allBlogs');
+                } else {
                     Swal.fire({
                         title: "No Changes",
                         text: "No modifications were made",
@@ -131,7 +146,7 @@ const UpdateBlog = () => {
                     <div className='md:w-1/2 '>
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend font-normal text-[16px] text-white">Author Email</legend>
-                            <input defaultValue={email} type="text" required name='email' className="input w-full" placeholder="Author Email" />
+                            <input defaultValue={userEmail} type="text" required name='email' className="input w-full" placeholder="Author Email" />
                         </fieldset>
                     </div>
                     {/* isFeatured */}

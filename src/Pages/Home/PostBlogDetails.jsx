@@ -6,10 +6,11 @@ import AuthContext from '../../context/AuthContext';
 const PostBlogDetails = () => {
     const blogDetails = useLoaderData()
     const { user } = useContext(AuthContext)
-    const { headline, imgUrl, description, category, author, publishDate, readTime, tags, readingLevel, language } = blogDetails
+    const { headline, imgUrl, description, category, author, publishDate, readTime, tags, readingLevel, language,_id } = blogDetails
+    const tagList = Array.isArray(tags) ? tags : tags.split(',');
 
     return (
-        <div>
+        <div key={_id}>
             {/* lg:w-14/16 */}
             <div className="card bg-base-100  lg:w-4/6 mx-auto  shadow-sm ">
                 <figure className="px-5 pt-5">
@@ -30,16 +31,22 @@ const PostBlogDetails = () => {
                     <p>Blog Type: {category}</p>
                     <h2 className='md:flex gap-2 grid '>
                         {
-                            tags.map((tag, index) => <button key={index} className='btn btn-outline btn-info'>{tag}</button>)
+                            tagList.map((tag, index) => <button key={index} className='btn btn-outline btn-info'>{tag}</button>)
                         }
                     </h2>
                     <p>Average Read Time: {readTime}</p>
                     <p>Reading Level: {readingLevel}</p>
                     <p>Language: {language}</p>
                     <div className="card-actions" >
-                        <Link to={`/blogs/update/${blogDetails._id}`}>
-                            <button className="btn btn-dash btn-success">Update</button>
-                        </Link>
+                        {user?.email === blogDetails?.userEmail ? (
+                            <Link to={`/blogs/update/${blogDetails._id}`}>
+                                <button className="btn btn-dash btn-success">Update</button>
+                            </Link>
+                        ) : (
+                            <button className="btn btn-dash btn-disabled  cursor-not-allowed" disabled>
+                                Update
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>

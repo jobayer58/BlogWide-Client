@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const AddBlog = () => {
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const handleAddBlog = e => {
         e.preventDefault()
@@ -39,6 +41,7 @@ const AddBlog = () => {
                                 text: "Your Blog has been Properly Submitted.",
                                 icon: "success"
                             });
+                            navigate('/allBlogs');
                         }
                     })
 
@@ -127,7 +130,7 @@ const AddBlog = () => {
                     <div className='md:w-1/2 '>
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend font-normal text-[16px] text-white">Author Email</legend>
-                            <input defaultValue={user?.email} type="text" required name='email' className="input w-full" placeholder="Author Email" />
+                            <input defaultValue={user?.email} type="text" required name='userEmail' className="input w-full" placeholder="Author Email" />
                         </fieldset>
                     </div>
                     {/* isFeatured */}
