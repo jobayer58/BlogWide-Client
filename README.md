@@ -34,6 +34,10 @@ BlogWide is a full-stack MERN (MongoDB, Express.js, React, Node.js) application 
 - Axios
 - Firebase
 - React Toastify
+- framer motion
+- React-data-table
+- react toastify
+- SweetAlert2
 
 ### Backend
 - Node.js
