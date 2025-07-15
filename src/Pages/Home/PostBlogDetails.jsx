@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import userIcon from '../../assets/male.png'
+import userIcon from '../../assets/male.png';
 import AuthContext from '../../context/AuthContext';
 import Comment from './Comment';
 import CommentsCard from './CommentsCard';
 
 const PostBlogDetails = () => {
-    const blogDetails = useLoaderData()
-    const { user } = useContext(AuthContext)
-    const [comments, setComments] = useState([])
-    const { headline, imgUrl, description, category, author, publishDate, readTime, tags, readingLevel, language, _id } = blogDetails
+    const blogDetails = useLoaderData();
+    const { user } = useContext(AuthContext);
+    const [comments, setComments] = useState([]);
+    const { headline, imgUrl, description, category, author, publishDate, readTime, tags, readingLevel, language, _id } = blogDetails;
     const tagList = Array.isArray(tags) ? tags : tags.split(',');
 
     const fetchComments = async () => {
@@ -23,59 +23,75 @@ const PostBlogDetails = () => {
     }, [blogDetails._id]);
 
     return (
-        <div key={_id}>
-            <div className="card bg-base-100  lg:w-4/6 mx-auto  shadow-sm ">
-                <figure className="px-5 pt-5">
+        <div key={_id} className="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 py-2 md:py-0">
+            <div className="bg-gradient-to-tr from-blue-50 via-sky-50 to-purple-50 rounded-2xl shadow-lg overflow-hidden">
+                <div className="h-[220px] sm:h-[300px] md:h-[550px] rounded-t-2xl overflow-hidden">
                     <img
                         src={imgUrl}
-                        alt="Shoes"
-                        className="rounded-xl lg:w-full lg:h-[700px] object-cover" />
-                </figure>
-                <div className="card-body items-center text-center">
-                    <h2 className="card-title text-2xl">{headline}</h2>
-                    <div className='flex justify-center items-center gap-2'>
+                        alt="Blog"
+                        className="w-full h-full object-cover transition hover:scale-105 duration-500"
+                    />
+                </div>
+                <div className="p-4 sm:p-6 md:p-10 space-y-4 sm:space-y-6">
+                    <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold leading-snug text-gray-800">{headline}</h1>
+
+                    <div className="flex items-center gap-3">
                         <img
-                            className="md:w-10 md:h-10 w-10 h-10 rounded-full object-cover"
-                            src={blogDetails.userImage ? blogDetails.userImage : userIcon}
+                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-sky-200 shadow"
+                            src={blogDetails.userImage || userIcon}
                             alt="Author"
                         />
-                        <p className='text-xl'> {author}</p>
+                        <div>
+                            <h4 className="font-semibold text-base sm:text-lg text-blue-700">{author}</h4>
+                            <p className="text-gray-500 text-xs sm:text-sm">Published: {publishDate}</p>
+                        </div>
                     </div>
-                    <p>{description}</p>
-                    <h1>Publish Date: {publishDate}</h1>
-                    <p>Blog Type: {category}</p>
-                    <h2 className='md:flex gap-2 grid '>
-                        {
-                            tagList.map((tag, index) => <button key={index} className='btn btn-outline btn-info'>{tag}</button>)
-                        }
-                    </h2>
-                    <p>Average Read Time: {readTime}</p>
-                    <p>Reading Level: {readingLevel}</p>
-                    <p>Language: {language}</p>
-                    <div className="card-actions" >
+
+                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{description}</p>
+
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                        {tagList.map((tag, index) => (
+                            <span key={index} className="px-3 py-1 rounded-full text-xs sm:text-sm bg-gradient-to-r from-blue-200 to-purple-200 text-gray-700">
+                                #{tag.trim()}
+                            </span>
+                        ))}
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-4 text-gray-600 text-xs sm:text-sm">
+                        <p><span className="font-medium">Category:</span> <span className="text-blue-700">{category}</span></p>
+                        <p><span className="font-medium">Read Time:</span> <span className="text-blue-700">{readTime}</span></p>
+                        <p><span className="font-medium">Level:</span> <span className="text-blue-700">{readingLevel}</span></p>
+                        <p><span className="font-medium">Language:</span> <span className="text-blue-700">{language}</span></p>
+                    </div>
+
+                    <div className="pt-3">
                         {user?.email === blogDetails?.userEmail ? (
                             <Link to={`/blogs/update/${blogDetails._id}`}>
-                                <button className="btn btn-dash btn-success">Update</button>
+                                <button className="w-full sm:w-auto px-4 py-2 rounded-lg bg-gradient-to-r from-blue-400 to-sky-500 text-white font-semibold shadow hover:scale-105 transition">
+                                    Update
+                                </button>
                             </Link>
                         ) : (
-                            <button className="btn btn-dash btn-disabled  cursor-not-allowed" disabled>
+                            <button className="w-full sm:w-auto px-4 py-2 rounded-lg bg-gray-300 text-gray-500 cursor-not-allowed" disabled>
                                 Update
                             </button>
                         )}
                     </div>
                 </div>
             </div>
-            <div>
+
+            <div className="mt-10 md:mt-16">
                 {user?.email !== blogDetails?.userEmail && (
                     <Comment blogId={_id} fetchComments={fetchComments} />
                 )}
             </div>
-            <div>
-                <h1 className='text-center font-semibold md:text-3xl text-3xl py-4'>Total Comments:({comments.length})</h1>
-                <div className="grid md:grid-cols-3 gap-6 px-10 py-8">
-                    {
-                        comments.map(com => <CommentsCard key={com._id} com={com}></CommentsCard>)
-                    }
+
+            <div className="mt-10 md:mt-16">
+                <h1 className="text-center font-bold text-2xl sm:text-3xl md:text-4xl mb-8 md:mb-10 text-blue-600">Total Comments ({comments.length})</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+                    {comments.map((com) => (
+                        <CommentsCard key={com._id} com={com} />
+                    ))}
                 </div>
             </div>
         </div>

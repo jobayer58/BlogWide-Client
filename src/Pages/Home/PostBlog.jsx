@@ -16,13 +16,13 @@ const PostBlog = () => {
 
     return (
         <div className='py-10'>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:mx-10 md:mx-5 mx-4 items-stretch'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-5 items-stretch'>
                 {
                     blogs.map(blog =>
-                        <PostBlogCard
-                            key={blog._id}
-                            blog={blog}
-                        ></PostBlogCard>)
+                        <div key={blog._id} className="h-full flex">
+                            <PostBlogCard blog={blog} />
+                        </div>
+                    )
                 }
             </div>
         </div>
